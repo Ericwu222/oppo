@@ -1,0 +1,131 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>『OPPO帐号』-注册</title> 
+  <meta name="keywords" content=" OPPO帐号,登录,注册,找回密码,OPPO账号,OPPO会员" /> 
+  <meta name="description" content="登录OPPO帐号，可以在OPPO官网、社区、软件商店、游戏中心、主题商店等享受更多功能服务。 " /> 
+  <meta http-equiv="pragma" content="no-cache" /> 
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" /> 
+  <link rel="stylesheet" href="/static/Index/reg/css/common.css?r=20171113" /> 
+ </head>
+ <body> 
+  <div class="wrapper"> 
+   <div class="header"> 
+    <div class="w960" style="" id="headerlinks"> 
+     <ul class="menu_sec"> 
+      <li><a href="https://www.oppo.com" translang="oppocom">OPPO官网</a></li> 
+      <li><a href="http://www.oppo.cn/" translang="oppocn">OPPO社区</a></li> 
+      <li><a href="http://www.coloros.com/" translang="coloros">ColorOS</a></li> 
+      <div class="clear"></div> 
+     </ul> 
+     <div class="clear"></div> 
+    </div> 
+   </div> 
+   <div class="register_area"> 
+    <div class="register_title" translang="registertext">
+     注册OPPO帐号
+    </div> 
+    <div id="content_l"> 
+     <form action="index.php?c=reg&amp;a=regdo" method="post"> 
+      <div class="account form-item"> 
+       <label for="form-item1" class="lab">用 &nbsp;&nbsp;户&nbsp;&nbsp; 名</label> 
+       <input name="username" id="form-item1" onfocus="onc(0)" onblur="onb(0)" type="text" placeholder="您的账户名和登录名" /> 
+      </div> 
+      <p class="input_tips" style=""> <b></b>支持字母、数字、“_”的组合，4-20个字符 </p> 
+      <div class="pwd form-item"> 
+       <label for="form-item2" class="lab">设 置 密 码</label> 
+       <input name="pass" id="form-item2" onfocus="onc(1)" onblur="onb(1)" type="password" placeholder="建议至少使用两种字符组合" /> 
+      </div> 
+      <p class="input_tips"> <b></b>建议使用字母、数字和符号两种及以上的组合，6-20个字符 </p> 
+      <div class="pwd1 form-item"> 
+       <label for="form-item3" class="lab">确 认 密 码</label> 
+       <input name="repass" id="form-item3" onfocus="onc(2)" onblur="onb(2)" type="password" placeholder="请再次输入密码" /> 
+      </div> 
+      <p class="input_tips"> <b></b>请再次输入密码 </p> 
+      <div class="phone_code"> 
+       <div class="phone form-item"> 
+        <label for="form-item5" class="lab">手 机 号 码</label> 
+        <input id="form-item5" type="phone" onfocus="onc(4)" onblur="onb(4)" placeholder="建议使用常用手机" /> 
+       </div> 
+       <p class="input_tips"> <b></b>完成验证后，你可以用该手机登录和找回密码 </p> 
+       <div class="code form-item"> 
+        <label for="form-item6" class="send_code" id="send_code">获取验证码</label> 
+        <input id="form-item6" type="text" placeholder="请输入手机验证码" /> 
+       </div> 
+       <p class="input_tips"> <b></b>完成验证后才可以登录 </p> 
+       <div class="field"> 
+        <div class="fl"> 
+         <label id="forCheckBox" for="isaccept" onclick="changeCheckbox1()" class="checkBoxLabel choosed"></label> 
+         <input type="checkbox" id="isaccept" checked="checked" name="accept" /> 
+         <label id="checkBoxLabel1"><span translang="registerlink_one">已阅读并同意</span><a class="agree_link" href="#" target="_blank" translang="registerlink_two">《OPPO帐号注册协议》</a></label> 
+        </div> 
+        <div class="clear"></div> 
+       </div> 
+      </div> 
+      <input type="submit" value="立即注册" /> 
+     </form> 
+    </div> 
+   </div> 
+   <div class="footer_info"> 
+    <p translang="footer_text">&copy; 2005 - 2017 OPPO 版权所有 粤ICP备14056724号-2 联系方式：4001-666-888</p> 
+   </div> 
+  </div> 
+  <input type="hidden" value="/captcha" id="captchaUrl" /> 
+  <input type="hidden" value="false" id="getCaptchaJs" /> 
+  <input type="hidden" value="" id="captchaResult" />
+  <script src="/static/Index/reg/js/jquery-1.8.3.min.js"></script>
+  <script>
+  // alert($);
+  //获取验证码
+   $("#send_code").click(function(){
+      
+   });
+  //
+    // 提示信息
+    // 
+    var items = document.getElementById('content_l').getElementsByTagName('p');
+    var inputs = document.getElementById('content_l').getElementsByTagName('input');
+    //alert(items);
+    function onc(a){
+      //alert(a);
+      items[a].style.visibility="visible";
+    }
+    function onb(a){
+      switch(a){
+        case 0:
+          str = inputs[0].value;
+          //alert(str);
+          if (str.match(/^\w{4,20}$/) == null) {
+            items[0].innerHTML = '用户名格式错误';
+            items[0].style.color = "red";
+          } else {
+            items[0].innerHTML = '用户名格式正确';
+            items[0].style.color = "green";
+          }
+          break;
+        case 1:
+          str = inputs[1].value;
+          //alert(str);
+          if (str.match(/^[0-9a-zA-Z]\w{5,17}$/) == null) {
+            items[1].innerHTML = '密码格式错误';
+            items[1].style.color = "red";
+          } else {
+            items[1].innerHTML = '密码格式正确';
+            items[1].style.color = "green";
+          }
+          break;
+        case 2:
+          str = inputs[2].value;
+          if (inputs[2].value != inputs[1].value) {
+            items[2].innerHTML = '两次密码不一致';
+            items[2].style.color = "red";
+          }
+          break;
+      }
+    }
+
+    //获取验证码
+    
+  </script> 
+ </body>
+</html>
